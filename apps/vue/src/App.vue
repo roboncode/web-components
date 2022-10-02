@@ -25,60 +25,64 @@ const name = ref('Vue')
   <h1>Vite + Vue</h1>
   <div class="grid gap-8">
     <div class="space-y-6 pt-14">
+      <div class="text-3xl font-medium">Svelte Web Components</div>
+      <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
+        <div class="flex flex-col justify-between gap-4 h-full">
+          <svelte-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
+          <svelte-counter />
+          <svelte-shadow />
+        </div>
+        <svelte-container class="w-full h-100" innerClass="gap-2">
+          <div>header</div>
+          <!-- <svelte-container class="w-full h-full" innerClass="gap-2"> -->
+            <div v-for="i in 10" :key="i" class="p-2 bg-purple-500 rounded">Item {{i}} </div>
+            <div class="sticky top-0 p-2 bg-yellow-500 rounded">Sticky </div>
+            <div v-for="i in 10" :key="i" class="p-2 bg-purple-500 rounded">Item {{i}} </div>
+          <!-- </svelte-container> -->
+          <div>footer</div>
+        </svelte-container>
+      </div>
+
+
       <div class="text-3xl font-medium">Lit Web Components</div>
       <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
-        <lit-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
-        <lit-counter />
-        <lit-container class="w-100 max-h-50 overflow-auto">
-          <div>
-            <div>Start </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>I am in a container </div>
-            <div>End </div>
+        <div class="flex flex-col justify-between gap-4 h-full">
+          <lit-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
+          <lit-counter />
+          <lit-shadow />
+        </div>
+        <lit-container class="w-100 max-h-40">
+          <div name="my-list">
+            <div class="sticky top-0 p-2 bg-dark-800 border border-purple-500 rounded">Start </div>
+            <div v-for="i in 10" :key="i">Item {{i}} </div>
           </div>
         </lit-container>
-        <lit-shadow />
       </div>
     </div>
 
     <div class="text-3xl font-medium">Solid Web Components</div>
-    <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
+    <!-- <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
       <solid-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
       <solid-counter />
       <solid-container class="flex justify-center items-center"> I am in a container </solid-container>
       <solid-shadow />
-    </div>
-
-
-    <div class="text-3xl font-medium">Svelte Web Components</div>
+    </div> -->
     <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
-      <svelte-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
-      <svelte-counter />
-      <svelte-container class="bg-red-500 block"> I am in a container </svelte-container>
-      <svelte-shadow />
+      <div class="flex flex-col justify-between h-full">
+        <solid-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
+        <solid-counter />
+        <solid-shadow />
+      </div>
+      <solid-container class="w-100 max-h-50">
+        <div name="my-list">
+          <div class="sticky top-0 p-2 bg-dark-800 border border-purple-500 rounded">Start </div>
+          <div v-for="i in 10" :key="i">Item {{i}} </div>
+        </div>
+      </solid-container>
     </div>
+
+
+
   </div>
 </template>
 

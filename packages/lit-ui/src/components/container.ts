@@ -1,25 +1,7 @@
-import { LitElement, html, css, render } from 'lit';
+import { LitElement, html, css } from 'lit';
 import { customElement, property } from 'lit/decorators.js';
-
-const WithSlots = (BaseClass: typeof LitElement) =>
-  class extends BaseClass {
-    static render = render;
-
-    override createRenderRoot() {
-      return document.createElement('v-root');
-    }
-
-    override connectedCallback() {
-      if (!this.renderRoot.parentElement) {
-        this.appendChild(this.renderRoot);
-      }
-
-      super.connectedCallback();
-    }
-  };
-
 @customElement('lit-container')
-export class Container extends WithSlots(LitElement) {
+export class Container extends LitElement {
   static override styles = css`
     .ui-container {
       background-color: yellow;
@@ -55,18 +37,17 @@ export class Container extends WithSlots(LitElement) {
   `;
 
   // no shadow dom
-  protected override createRenderRoot(): Element | ShadowRoot {
-    // return this;
-    return document.createElement('v-root');
-  }
+  // protected override createRenderRoot(): Element | ShadowRoot {
+  //   return document.createElement('v-root');
+  // }
 
-  override connectedCallback() {
-    if (!this.renderRoot.parentElement) {
-      this.appendChild(this.renderRoot);
-    }
+  // override connectedCallback() {
+  //   if (!this.renderRoot.parentElement) {
+  //     this.appendChild(this.renderRoot);
+  //   }
 
-    super.connectedCallback();
-  }
+  //   super.connectedCallback();
+  // }
 
   @property({ type: String })
   class = '';
@@ -76,7 +57,7 @@ export class Container extends WithSlots(LitElement) {
       <div class="ui-container ui-flex ui-flex-col ui-overflow-hidden ${this.class}">
         <div class="ui-flex ui-flex-col ui-flex-grow ui-overflow-auto ui-h-01">
           <div>This is this is above the slot</div>
-          <v-slot></v-slot>
+          <div>${this.children}</div>
           <div>This is this is below the slot</div>
         </div>
       </div>

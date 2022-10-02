@@ -13,23 +13,23 @@ const name = ref('Vue')
 </script>
 
 <template>
-  <div>
+  <div class="flex justify-center gap-16 p-8">
     <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
+      <img src="/vite.svg" class="logo h-24" alt="Vite logo" />
     </a>
     <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
+      <img src="./assets/vue.svg" class="logo h-24 vue" alt="Vue logo" />
     </a>
   </div>
   <!-- <HelloWorld msg="Vite + Vue" /> -->
   <h1>Vite + Vue</h1>
-  <div class="grid gap-3">
-    <div>
-      <h2>Lit Web Components</h2>
+  <div class="grid gap-8">
+    <div class="space-y-6 pt-14">
+      <div class="text-3xl font-medium">Lit Web Components</div>
       <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
         <lit-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
         <lit-counter />
-        <lit-container class="w-100 max-h-50">
+        <lit-container class="w-100 max-h-50 overflow-auto">
           <div>
             <div>Start </div>
             <div>I am in a container </div>
@@ -63,32 +63,27 @@ const name = ref('Vue')
       </div>
     </div>
 
-    <div>
-      <h2>Solid Web Components</h2>
-      <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
-        <solid-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
-        <solid-counter />
-        <solid-container class="flex justify-center items-center"> I am in a container </solid-container>
-        <solid-shadow />
-      </div>
+    <div class="text-3xl font-medium">Solid Web Components</div>
+    <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
+      <solid-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
+      <solid-counter />
+      <solid-container class="flex justify-center items-center"> I am in a container </solid-container>
+      <solid-shadow />
     </div>
 
-    <div>
-      <h2>Svelte Web Components</h2>
-      <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
-        <svelte-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
-        <svelte-counter />
-        <svelte-container class="bg-red-500 block"> I am in a container </svelte-container>
-        <svelte-shadow />
-      </div>
+
+    <div class="text-3xl font-medium">Svelte Web Components</div>
+    <div class="container grid grid-cols-2 p-4 gap-3 font-bold rounded-lg drop-shadow">
+      <svelte-hello :name="name" @click="name = 'world'" class="card cursor-pointer" />
+      <svelte-counter />
+      <svelte-container class="bg-red-500 block"> I am in a container </svelte-container>
+      <svelte-shadow />
     </div>
   </div>
 </template>
 
 <style scoped>
 .logo {
-  height: 6em;
-  padding: 1.5em;
   will-change: filter;
 }
 
@@ -98,90 +93,6 @@ const name = ref('Vue')
 
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
-}
-
-.grid {
-  display: grid;
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, 1fr);
-}
-
-.grid-border {
-  border: 1px solid #ccc;
-}
-
-.border-opacity-50 {
-  border-color: rgba(0, 0, 0, 0.5);
-}
-
-.rounded-lg {
-  border-radius: 0.5rem;
-}
-
-.border-rounded {
-  border-radius: 0.5em;
-}
-
-.p-4 {
-  padding: 1rem;
-}
-
-.flex {
-  display: flex;
-}
-
-.justify-center {
-  justify-content: center;
-}
-
-.items-center {
-  align-items: center;
-}
-
-.gap-3 {
-  gap: 1.2rem;
-}
-
-.bg-red-500 {
-  background-color: red;
-}
-
-.bg-orange-500 {
-  background-color: orange;
-}
-
-.bg-green-500 {
-  background-color: green;
-}
-
-.font-bold {
-  font-weight: bold;
-}
-
-.drop-shadow {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-
-.container {
-  background-color: #1c1c1c;
-}
-
-.h-100 {
-  height: 25rem;
-}
-
-.w-100 {
-  width: 25rem;
-}
-
-.max-h-100 {
-  max-height: 25rem;
-}
-
-.max-h-50 {
-  max-height: 12.5rem; /* 200px */
 }
 
 .card {
@@ -195,14 +106,15 @@ const name = ref('Vue')
   font-size: 1rem;
   font-weight: bold;
   color: #ffffff;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.1s ease-in-out;
 }
 
 .card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
-.cursor-pointer {
-  cursor: pointer;
+.container {
+  background-color: #1c1c1c;
+  filter: drop-shadow(0 0 1.4em #646cffaa);
 }
 </style>

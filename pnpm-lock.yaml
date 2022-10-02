@@ -73,8 +73,11 @@ importers:
       '@roboncode/lit-ui': workspace:*
       '@roboncode/solid-ui': workspace:*
       '@roboncode/svelte-ui': workspace:*
+      '@unocss/preset-uno': ^0.45.26
+      '@unocss/reset': ^0.45.26
       '@vitejs/plugin-vue': ^3.1.0
       typescript: ^4.6.4
+      unocss: ^0.45.26
       vite: ^3.1.0
       vue: ^3.2.37
       vue-tsc: ^0.40.4
@@ -82,10 +85,13 @@ importers:
       '@roboncode/lit-ui': link:../../packages/lit-ui
       '@roboncode/solid-ui': link:../../packages/solid-ui
       '@roboncode/svelte-ui': link:../../packages/svelte-ui
+      '@unocss/reset': 0.45.26
       vue: 3.2.40
     devDependencies:
+      '@unocss/preset-uno': 0.45.26
       '@vitejs/plugin-vue': 3.1.0_vite@3.1.4+vue@3.2.40
       typescript: 4.8.4
+      unocss: 0.45.26_vite@3.1.4
       vite: 3.1.4
       vue-tsc: 0.40.13_typescript@4.8.4
 

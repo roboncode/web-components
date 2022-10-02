@@ -3,14 +3,6 @@ import { customElement, property } from 'lit/decorators.js';
 @customElement('lit-container')
 export class Container extends LitElement {
   static override styles = css`
-    .ui-container {
-      background-color: yellow;
-      padding: 10px;
-      border: 1px solid limegreen;
-      border-radius: 10px;
-      color: #333;
-    }
-
     .ui-h-0 {
       height: 0rem;
     }

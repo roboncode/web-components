@@ -1,5 +1,3 @@
-<!-- <svelte:options tag="svelte-shadow" accessors={true} /> -->
-
 <div class="root">This component is in a #shadow-root</div>
 
 <style>

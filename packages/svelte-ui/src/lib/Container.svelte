@@ -1,4 +1,3 @@
-<!-- <svelte:options tag="svelte-container" accessors={true} /> -->
 <script lang="ts">
   export let outerclass = ''
   export let innerclass = ''

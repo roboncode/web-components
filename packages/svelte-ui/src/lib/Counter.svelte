@@ -1,12 +1,18 @@
-<!-- <svelte:options tag="svelte-counter" accessors={true} /> -->
+<svelte:options tag="svelte-counter" accessors={true} />
 
+<!-- https://www.thisdot.co/blog/web-components-with-svelte -->
 <script lang="ts">
+  export let className = ''
+  let btn; // using binding
+
   let count: number = 0
-  const increment = () => {
+  const increment = e => {
     count += 1
+    // e.target.dispatchEvent(new CustomEvent('change', { detail: { count }, composed: true }))
+    btn.dispatchEvent(new CustomEvent('change', { detail: { count }, composed: true }))
   }
 </script>
 
-<button on:click={increment}>
+<button bind:this={btn} class={className} on:click={increment}>
   Count: {count}
 </button>

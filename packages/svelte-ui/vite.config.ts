@@ -11,7 +11,7 @@ export default defineConfig({
     svelte({
       compilerOptions: {
         // dev: process.env.NODE_ENV !== 'production',
-        // customElement: true
+        customElement: true
       },
     }), 
     dts({ insertTypesEntry: true })

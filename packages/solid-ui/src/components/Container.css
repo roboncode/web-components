@@ -1,0 +1,31 @@
+.solid-flex {
+  display: flex;
+}
+
+.solid-flex-col {
+  flex-direction: column;
+}
+
+.solid-flex-grow {
+  flex-grow: 1;
+}
+
+.solid-overflow-hidden {
+  overflow: hidden;
+}
+
+.solid-overflow-auto {
+  overflow: auto;
+}
+
+.solid-h-0 {
+  height: 0;
+}
+
+.solid-w-full {
+  width: 100%;
+}
+
+.solid-h-full {
+  height: 100%;
+}

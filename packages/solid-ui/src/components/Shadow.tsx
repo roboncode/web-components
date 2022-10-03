@@ -1,5 +1,3 @@
-import './Shadow.css';
-
 export const Shadow = () => {
   return (
     <div style={{

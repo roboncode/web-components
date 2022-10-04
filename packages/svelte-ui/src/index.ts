@@ -1,7 +1,7 @@
 import './lib/Card.svelte'
 // import Container from './lib/Container.svelte'
 import './lib/Counter.svelte'
-import './lib/Ratings.svelte'
+import './lib/Scorecard.svelte'
 // import Shadow from './lib/Shadow.svelte'
 // import WebComponent from 'svelte-tag'
 

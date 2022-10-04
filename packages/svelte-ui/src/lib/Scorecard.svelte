@@ -1,4 +1,4 @@
-<svelte:options tag="svelte-ratings" accessors={true} />
+<svelte:options tag="svelte-scorecard" accessors={true} />
 
 <script lang="ts">
   import StarEmpty from './StarEmpty.svelte'
@@ -9,6 +9,7 @@
   export let score = '0'
   export let max = 5
   export let value: { title: string; stars: number }[] = []
+  export let starColor = '#333333'
 
   $: numberToArray = stars => {
     // convert 3.5 to array [1, 1, 1, 0.5, 0]
@@ -28,7 +29,7 @@
   }
 </script>
 
-<div class="p-8 rounded-lg bg-black/50 mb-8">
+<div class="p-8 pb-4 rounded-lg bg-black/50">
   <div class="flex items-center font-bold text-xl">
     <div>{title}</div>
     <div class="flex-grow" />
@@ -41,7 +42,7 @@
         <div class="flex items-center gap-2">
           <strong>{title}</strong>
           <div class="flex-grow" />
-          <div class="flex gap-1 text-yellow-300">
+          <div class="flex gap-1 star" style="--star-color: {starColor}">
             {#each numberToArray(stars) as star}
               {#if star === 1}
                 <StarSolid />
@@ -103,9 +104,8 @@
     align-items: center;
   }
 
-  .text-yellow-300 {
-    --tw-text-opacity: 1;
-    color: rgba(252, 211, 77, var(--tw-text-opacity));
+  .star {
+    color: var(--star-color);
   }
 
   .gap-1 {
@@ -122,6 +122,10 @@
     padding: 2rem; /* 32px */
   }
 
+  .pb-4 {
+    padding-bottom: 1rem; /* 16px */
+  }
+
   .rounded-lg {
     border-radius: 0.5rem; /* 8px */
   }
@@ -129,9 +133,5 @@
   .bg-black\/50 {
     --tw-bg-opacity: 0.5;
     background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
-  }
-
-  .mb-8 {
-    margin-bottom: 2rem; /* 32px */
   }
 </style>

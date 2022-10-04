@@ -12,7 +12,7 @@
   export let score = '0'
   export let max = 5
   export let value: { title: string; stars: number }[] = []
-  export let starColor = '#333333'
+  export let styles = '--star-color: #333333'
 
   $: numberToArray = stars => {
     // convert 3.5 to array [1, 1, 1, 0.5, 0]
@@ -36,10 +36,12 @@
     style.textContent = css
     self.shadowRoot.appendChild(style)
   }
+
+  $: values = typeof value === 'string' ? JSON.parse(value) : value
 </script>
 
 <!-- This example is using UnoCSS to style. Tailwind could be used as well -->
-<div class="p-4 pb-4 rounded-lg bg-dark-900/50">
+<div class="p-4 pb-4 rounded-lg bg-dark-900/50" style={styles}>
   <div class="pt-4 pl-4 pr-4 flex items-center font-bold text-xl">
     <div>{title}</div>
     <div class="flex-grow" />
@@ -47,12 +49,12 @@
   </div>
   <ul class="p-0">
     <!-- loop through ratings -->
-    {#each value as { title, stars }}
+    {#each values as { title, stars }}
       <li class="list-none py-2 px-3 rounded-lg hover:bg-white/10">
         <div class="flex items-center gap-2">
           <strong>{title}</strong>
           <div class="flex-grow" />
-          <div class="flex gap-1 star" style="--star-color: {starColor}">
+          <div class="flex gap-1 star">
             {#each numberToArray(stars) as star}
               {#if star === 1}
                 <StarSolid />

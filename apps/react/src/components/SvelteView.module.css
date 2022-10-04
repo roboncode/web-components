@@ -1,0 +1,30 @@
+/* Styling web component with ::part and CSS */
+svelte-counter[name='css-example']::part(button) {
+  border: 3px solid transparent;
+  border-radius: 0.5rem;
+  padding-left: 1.25rem;
+  /* 20px */
+  padding-right: 1.25rem;
+  /* 20px */
+  padding-top: 0.75rem;
+  /* 12px */
+  padding-bottom: 0.75rem;
+  /* 12px */
+  font-size: 1rem;
+  /* 16px */
+  font-weight: 700;
+  line-height: 1;
+  background-color: rgb(28, 28, 30);
+  cursor: pointer;
+  transition: border-color 300ms;
+}
+
+svelte-counter[name='css-example']::part(button):hover {
+  border-color: rgb(20, 184, 166);
+}
+
+/* Styling web component with ::part and TailwindCSS / UnoCSS */
+/* https://tailwindcss.com/docs/functions-and-directives#apply */
+svelte-counter[name='tailwind-example']::part(button) {
+  @apply px-5 py-3 bg-dark-600 border-3 border-transparent font-bold text-1rem rounded-lg cursor-pointer duration-300 hover:border-teal-500;
+}

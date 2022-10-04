@@ -155,7 +155,7 @@ const svelteCSS = computed(() => {
         <li class="list-disc">Using a 3rd party library for animation</li>
       </template>
       <div class="w-full max-h-80 p-4">
-        <svelte-reveal />
+        <svelte-todo />
       </div>
     </Card>
   </div>

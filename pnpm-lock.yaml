@@ -50,22 +50,36 @@ importers:
       '@roboncode/svelte-ui': workspace:*
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
+      '@unocss/preset-icons': ^0.45.26
+      '@unocss/preset-uno': ^0.45.26
+      '@unocss/reset': ^0.45.26
+      '@unocss/transformer-directives': ^0.45.26
       '@vitejs/plugin-react': ^2.1.0
+      add: ^2.0.6
+      pnpm: ^7.13.1
       react: ^18.2.0
       react-dom: ^18.2.0
       typescript: ^4.6.4
+      unocss: ^0.45.26
       vite: ^3.1.0
     dependencies:
       '@roboncode/lit-ui': link:../../packages/lit-ui
       '@roboncode/solid-ui': link:../../packages/solid-ui
       '@roboncode/svelte-ui': link:../../packages/svelte-ui
+      '@unocss/reset': 0.45.26
+      add: 2.0.6
+      pnpm: 7.13.1
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     devDependencies:
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
+      '@unocss/preset-icons': 0.45.26
+      '@unocss/preset-uno': 0.45.26
+      '@unocss/transformer-directives': 0.45.26
       '@vitejs/plugin-react': 2.1.0_vite@3.1.4
       typescript: 4.8.4
+      unocss: 0.45.26_vite@3.1.4
       vite: 3.1.4
 
   apps/vue:
@@ -1825,6 +1839,10 @@ packages:
   /add-stream/1.0.0:
     resolution: {integrity: sha512-qQLMr+8o0WC4FZGQTcJiKBVC59JylcPSrTtk6usvmIDFUOCKegapy1VHQwRbFMOFyb/inzUVqHs+eMYKDM1YeQ==}
     dev: true
+
+  /add/2.0.6:
+    resolution: {integrity: sha512-j5QzrmsokwWWp6kUcJQySpbG+xfOBqqKnup3OIk1pz+kB/80SLorZ9V8zHFLO92Lcd+hbvq8bT+zOGoPkmBV0Q==}
+    dev: false
 
   /agent-base/6.0.2:
     resolution: {integrity: sha512-RZNwNclF7+MS/8bDg70amg32dyeZGZxiDuQmZxKLAlQjr3jGyLx+4Kkk58UO7D2QdgFIQCovuSuZESne6RG6XQ==}
@@ -6224,6 +6242,12 @@ packages:
     engines: {node: '>=8'}
     dependencies:
       find-up: 4.1.0
+    dev: false
+
+  /pnpm/7.13.1:
+    resolution: {integrity: sha512-Nu1LzxlH3qdIFe0DJ5SciqBl9i7t/eW+c0zKf9g8TXRo20EhXy/e9YwCLY2fEwbIYL/3gZ4zuys010PRpsbHFQ==}
+    engines: {node: '>=14.6'}
+    hasBin: true
     dev: false
 
   /popmotion/9.3.5:

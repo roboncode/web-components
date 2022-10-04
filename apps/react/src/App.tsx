@@ -2,8 +2,8 @@
 import './App.css'
 import '@roboncode/lit-ui'
 import '@roboncode/solid-ui'
-import '@roboncode/svelte-ui'
 
+import SvelteView from './components/SvelteView'
 import reactLogo from './assets/react.svg'
 import { useState } from 'react'
 
@@ -21,8 +21,8 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
+      {/* <h1>Vite + React</h1> */}
+      {/* <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
@@ -32,12 +32,12 @@ function App() {
       </div>
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
-      </p>
+      </p> */}
 
-      <lit-counter name={name} onClick={() => setName('world')} class="block font-bold p-4 bg-shade rounded-md" />
+      {/* <lit-counter name={name} onClick={() => setName('world')} class="block font-bold p-4 bg-shade rounded-md" />
       <solid-counter name={name} onClick={() => setName('world')} class="block font-bold p-4 bg-shade rounded-md" />
-      <svelte-counter name={name} onClick={() => setName('world')} class="block font-bold p-4 bg-shade rounded-md" />
-
+      <svelte-counter name={name} onClick={() => setName('world')} class="block font-bold p-4 bg-shade rounded-md" /> */}
+      <SvelteView />
     </div>
   )
 }

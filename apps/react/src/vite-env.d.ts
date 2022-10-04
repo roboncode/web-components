@@ -2,7 +2,7 @@
 
 import { SolidCounter } from '@jombee/solid-ui';
 import { LitCounter } from '@jombee/lit-ui';
-import { SvelteCounter } from '@jombee/svelte-ui';
+import { SvelteCounter, SvelteScorecard } from '@jombee/svelte-ui';
 
 type CustomEvents<K extends string> = { [key in K] : (event: CustomEvent) => void };
 
@@ -14,6 +14,9 @@ declare global {
       'lit-counter': CustomElement<LitCounter> & { name: string };
       'solid-counter': SolidCounter & { name: string };
       'svelte-counter': SvelteCounter & { name: string };
+      'svelte-scorecard': any;
+      'svelte-card': any;
+      'svelte-container': any;
     }
   }
 }

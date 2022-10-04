@@ -2,7 +2,6 @@
 
 <!-- https://www.thisdot.co/blog/web-components-with-svelte -->
 <script lang="ts">
-  export let css = ''
   let btn; // using binding
 
   let count: number = 0

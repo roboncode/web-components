@@ -5,7 +5,7 @@
   import StarHalf from './StarHalf.svelte'
   import StarSolid from './StarFull.svelte'
 
-  export let title = 'Svelte Scorecard'
+  export let title = 'Scorecard'
   export let score = '0'
   export let max = 5
   export let value: { title: string; stars: number }[] = []
@@ -29,11 +29,11 @@
   }
 </script>
 
-<div class="p-8 pb-4 rounded-lg bg-black/50">
-  <div class="flex items-center font-bold text-xl">
+<div class="p-4 pb-4 rounded-lg bg-black/50">
+  <div class="header flex items-center font-bold text-xl">
     <div>{title}</div>
     <div class="flex-grow" />
-    <div>Score: {score}</div>
+    <div>{score}</div>
   </div>
   <ul>
     <!-- loop through ratings -->
@@ -118,8 +118,14 @@
     gap: 0.5rem; /* 8px */
   }
 
-  .p-8 {
-    padding: 2rem; /* 32px */
+  .p-4 {
+    padding: 1rem; /* 16px */
+  }
+
+  .header {
+    padding-top: 1rem; /* 16px */
+    padding-left: 1rem; /* 16px */
+    padding-right: 1rem; /* 16px */
   }
 
   .pb-4 {

@@ -19,6 +19,8 @@ This [turborepo](https://turborepo.org/) uses [pnpm](https://pnpm.io) as a packa
 
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/). Packages were created [Vite](https://vitejs.dev/). Runs and build use Vite as the development environment.
 
+![Screenshot](/assets/screenshot.png)
+
 ### Utilities
 
 This repository has some additional tools already setup for you:

@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import '@roboncode/svelte-ui'
 // import '@roboncode/svelte-ui/dist/style.css'
-
 import { ref } from 'vue'
 
 const name = ref('Vue')
@@ -48,8 +47,16 @@ const getRandomSize = () => {
     <div class="px-4">
       <div class="font-bold text-xl">Summary</div>
       <p>Svelte was actually pretty simple to use. There is little difference between creating a
-        Svelte component vs. Svelte web component. Difference is mainly around dispatching events. The file size is
+        Svelte component vs. Svelte web component. The only difference I found was around dispatching events.</p>
+
+      <p>The file size is
         amazingly small. Generally the size is half of other frameworks.</p>
+
+      <p>There weren't any additional libraries needed for Svelte to work. However if you want to have the flexibility
+        of
+        disabling the shadow dom, then you will need to use a solution like <a
+          href="https://github.com/crisward/svelte-tag"><code>svelte-tag</code></a>. I personally don't think it is
+        needed. </p>
     </div>
 
     <div class="bg-purple-500 p-4 py-2 rounded-md text-xl font-bold mt-9">Multiple components</div>
@@ -81,11 +88,20 @@ const getRandomSize = () => {
     </svelte-card>
 
     <div class="bg-purple-500 mt-8 p-4 py-2 rounded-md text-xl font-bold">Stateful component</div>
-    <div class="font-normal">Manages its own state and dispatches a change event when the count as changed.</div>
+    <div class="font-normal p-4">
+      <strong>Demonstrates</strong>
+      <ul class="pl-4">
+        <li class="list-disc">Manages its own state</li>
+        <li class="list-disc">Styling from external css (outside of web component) using
+          <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/::part"><code>::part()</code></a>
+        </li>
+        <li class="list-disc">Exposing events from web component</li>
+      </ul>
+    </div>
 
     <div class="flex gap-4 items-center">
-      <svelte-counter className="bg-light-blue-500" @change="handleCountChange($event)" />
-      <div class="w-8 h-8 flex items-center justify-center rounded bg-light-blue-500">
+      <svelte-counter @change="handleCountChange($event)" />
+      <div class="px-3 h-8 flex items-center justify-center rounded bg-dark-200/40 border-2 border-dark-100">
         <strong>{{count}}</strong>
       </div>
     </div>
@@ -107,21 +123,22 @@ const getRandomSize = () => {
           <button class="i-tabler-menu-2" @click="showMenu = !showMenu"></button>
           <div class="font-bold">My application</div>
         </div>
-        <div class="flex w-full h-full bg-red">
+        <div class="flex w-full h-full">
           <svelte-container v-if="showMenu" class="h-full bg-dark-800 drop-shadow">
             <div class="flex gap-2 items-center font-bold p-4 bg-dark-400 sticky top-0">
               <span class="i-tabler-user-circle"></span>
               <span>Jane Doe</span>
             </div>
-            <div class="p-4 w-50 space-y-2">
+            <div class="grid gap-4 p-4 w-50">
               <div>Home</div>
               <div>Reports</div>
               <div>Profile</div>
               <div>Settings</div>
+              <div v-for="i in 10" :key="i" class="h-4 w-20 rounded-full bg-dark-200"></div>
             </div>
           </svelte-container>
-          <svelte-container class="h-full flex-grow bg-dark-500" contentClass="p-10">
-            <div class="inline-flex flex-wrap gap-4 p-4">
+          <svelte-container class="h-full flex-grow bg-dark-500">
+            <div v-once class="inline-flex flex-wrap gap-4 p-4">
               <div v-for="i in 150" :key="i" class="h-4 rounded-full bg-dark-200" :class="getRandomSize()"></div>
             </div>
           </svelte-container>
@@ -136,3 +153,21 @@ const getRandomSize = () => {
     </div>
   </div>
 </template>
+
+<style>
+svelte-counter::part(button) {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: bold;
+  font-family: inherit;
+  background-color: #0095ff;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+svelte-counter::part(button):hover {
+  background-color: #ff00e6;
+}
+</style>

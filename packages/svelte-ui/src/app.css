@@ -17,11 +17,11 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  /* color: #64e8ff; */
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: #53eff2;
 }
 
 body {

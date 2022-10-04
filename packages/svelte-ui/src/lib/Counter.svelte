@@ -2,7 +2,7 @@
 
 <!-- https://www.thisdot.co/blog/web-components-with-svelte -->
 <script lang="ts">
-  export let className = ''
+  export let css = ''
   let btn; // using binding
 
   let count: number = 0
@@ -13,6 +13,6 @@
   }
 </script>
 
-<button bind:this={btn} class={className} on:click={increment}>
+<button part="button" bind:this={btn} on:click={increment}>
   Count: {count}
 </button>

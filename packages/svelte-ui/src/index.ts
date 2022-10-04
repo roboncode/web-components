@@ -1,3 +1,4 @@
+import 'uno.css'
 import './lib/Card.svelte'
 import './lib/Container.svelte'
 import './lib/Counter.svelte'

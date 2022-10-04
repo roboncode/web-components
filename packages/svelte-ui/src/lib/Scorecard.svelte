@@ -1,15 +1,22 @@
 <svelte:options tag="svelte-scorecard" accessors={true} />
 
 <script lang="ts">
+  import { get_current_component } from 'svelte/internal'
   import StarEmpty from './StarEmpty.svelte'
   import StarHalf from './StarHalf.svelte'
   import StarSolid from './StarFull.svelte'
 
+  const self = get_current_component()
+  export let css = ''
   export let title = 'Scorecard'
   export let score = '0'
   export let max = 5
   export let value: { title: string; stars: number }[] = []
   export let starColor = '#333333'
+
+  // if (css) {
+
+  // }
 
   $: numberToArray = stars => {
     // convert 3.5 to array [1, 1, 1, 0.5, 0]
@@ -27,18 +34,25 @@
     }
     return vals
   }
+
+  $: if (css) {
+    let style = document.createElement('style')
+    style.textContent = css
+    self.shadowRoot.appendChild(style)
+  }
 </script>
 
-<div class="p-4 pb-4 rounded-lg bg-black/50">
-  <div class="header flex items-center font-bold text-xl">
+<!-- This example is using UnoCSS to style. Tailwind could be used as well -->
+<div class="p-4 pb-4 rounded-lg bg-dark-900/50">
+  <div class="pt-4 pl-4 pr-4 flex items-center font-bold text-xl">
     <div>{title}</div>
     <div class="flex-grow" />
     <div>{score}</div>
   </div>
-  <ul>
+  <ul class="p-0">
     <!-- loop through ratings -->
     {#each value as { title, stars }}
-      <li>
+      <li class="list-none py-2 px-3 rounded-lg hover:bg-white/10">
         <div class="flex items-center gap-2">
           <strong>{title}</strong>
           <div class="flex-grow" />
@@ -60,84 +74,7 @@
 </div>
 
 <style>
-  .text-xl {
-    font-size: 1.25rem; /* 20px */
-    line-height: 1.75rem; /* 28px */
-  }
-
-  .font-bold {
-    font-weight: 700;
-  }
-
-  ul {
-    padding: 0;
-  }
-
-  li {
-    list-style: none;
-    padding: 0.5rem 0.8rem;
-    border-radius: 0.5rem;
-  }
-
-  li:hover {
-    background-color: #ffffff0d;
-  }
-
-  .flex {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-  }
-
-  .flex-grow {
-    -webkit-box-flex: 1;
-    -ms-flex-positive: 1;
-    -webkit-flex-grow: 1;
-    flex-grow: 1;
-  }
-
-  .items-center {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-
   .star {
     color: var(--star-color);
-  }
-
-  .gap-1 {
-    grid-gap: 0.25rem; /* 4px */
-    gap: 0.25rem; /* 4px */
-  }
-
-  .gap-2 {
-    grid-gap: 0.5rem; /* 8px */
-    gap: 0.5rem; /* 8px */
-  }
-
-  .p-4 {
-    padding: 1rem; /* 16px */
-  }
-
-  .header {
-    padding-top: 1rem; /* 16px */
-    padding-left: 1rem; /* 16px */
-    padding-right: 1rem; /* 16px */
-  }
-
-  .pb-4 {
-    padding-bottom: 1rem; /* 16px */
-  }
-
-  .rounded-lg {
-    border-radius: 0.5rem; /* 8px */
-  }
-
-  .bg-black\/50 {
-    --tw-bg-opacity: 0.5;
-    background-color: rgba(0, 0, 0, var(--tw-bg-opacity));
   }
 </style>

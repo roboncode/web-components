@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import '@roboncode/svelte-ui'
-// import '@roboncode/svelte-ui/dist/style.css'
+import styles from  '@roboncode/svelte-ui/dist/style.css'
 import { ref } from 'vue'
 import Card from './Card.vue'
 
 const name = ref('everyone')
 const count = ref(0)
-const showMenu = ref(false)
+const showMenu = ref(true)
 
 const ratings = [
   { title: 'Getting Started', stars: 2.5 },
@@ -33,7 +33,6 @@ const getRandomSize = () => {
   const randomIndex = Math.floor(Math.random() * sizes.length)
   return 'w-' + sizes[randomIndex]
 }
-
 // const sheet = new CSSStyleSheet()
 // sheet.replaceSync('a { color: red; }');
 </script>
@@ -60,17 +59,8 @@ const getRandomSize = () => {
       </p>
     </div>
 
-    <svelte-scorecard starColor="#f6e05e" score="4.75" :value="ratings" />
 
-    <Card title="Multiple components">
-      <template #details>
-        <li class="list-disc">Binding to complex data</li>
-        <li class="list-disc">Embedding web components within web components</li>
-        <li class="list-disc">Dynamically styling component</li>
-      </template>
-      <svelte-scorecard starColor="#f6e05e" score="1 million" :value="[{title: 'Example'}]" />
-    </Card>
-
+    <svelte-scorecard starColor="#f6e05e" score="4.75" :value="ratings" :css="styles"  />
 
     <Card title="Stateless component">
       <template #details>
@@ -146,6 +136,17 @@ const getRandomSize = () => {
           </div>
         </svelte-container>
       </div>
+    </Card>
+
+    <!-- w-10 w-20 w-30 w-40 -->
+    <Card title="Multiple components">
+      <template #details>
+        <li class="list-disc">Binding to complex data</li>
+        <li class="list-disc">Embedding web components within web components</li>
+        <li class="list-disc">Dynamically styling component using CSS <code>var</code></li>
+        <li class="list-disc">Applying styles by passing a CSS from a CSS file generated using TailwindCSS (UnoCSS)</li>
+      </template>
+      <svelte-scorecard starColor="#f6e05e" score="1 million" :value="[{title: 'Example'}]" :css="styles" />
     </Card>
   </div>
 </template>

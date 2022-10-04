@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import '@roboncode/svelte-ui'
 import styles from  '@roboncode/svelte-ui/dist/style.css'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import Card from './Card.vue'
 
 const name = ref('everyone')
@@ -33,8 +33,10 @@ const getRandomSize = () => {
   const randomIndex = Math.floor(Math.random() * sizes.length)
   return 'w-' + sizes[randomIndex]
 }
-// const sheet = new CSSStyleSheet()
-// sheet.replaceSync('a { color: red; }');
+
+const svelteCSS = computed(() => {
+  return styles.replace(/.*::backdrop.*?}(.*)/gi, "$1")
+})
 </script>
 
 <template>
@@ -60,7 +62,7 @@ const getRandomSize = () => {
     </div>
 
 
-    <svelte-scorecard starColor="#f6e05e" score="4.75" :value="ratings" :css="styles"  />
+    <svelte-scorecard starColor="#f6e05e" score="4.75" :value="ratings" :css="svelteCSS"  />
 
     <Card title="Stateless component">
       <template #details>
@@ -146,7 +148,7 @@ const getRandomSize = () => {
         <li class="list-disc">Dynamically styling component using CSS <code>var</code></li>
         <li class="list-disc">Applying styles by passing a CSS from a CSS file generated using TailwindCSS (UnoCSS)</li>
       </template>
-      <svelte-scorecard starColor="#f6e05e" score="1 million" :value="[{title: 'Example'}]" :css="styles" />
+      <svelte-scorecard starColor="#f6e05e" score="1 million" :value="[{title: 'Example'}]" :css="svelteCSS" />
     </Card>
   </div>
 </template>

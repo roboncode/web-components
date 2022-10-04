@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import dts from 'vite-plugin-dts';
+import presetMini  from '@unocss/preset-mini'
 import presetUno from '@unocss/preset-uno'
 import { resolve } from 'path';
 import { svelte } from '@sveltejs/vite-plugin-svelte'
@@ -19,7 +20,8 @@ export default defineConfig({
     }), 
     dts({ insertTypesEntry: true }),
     unocss({
-      // presets: [
+      presets: [
+        presetMini()
         // presetUno(),
         // presetIcons({
         //   extraProperties: {
@@ -27,7 +29,7 @@ export default defineConfig({
         //     'vertical-align': 'middle',
         //   },
         // }),
-      // ],
+      ],
       // transformers: [transformerDirective()],
     }),
   ],

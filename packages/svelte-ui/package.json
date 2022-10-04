@@ -30,6 +30,7 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^1.0.2",
     "@tsconfig/svelte": "^3.0.0",
+    "@unocss/preset-mini": "^0.45.26",
     "@unocss/preset-uno": "^0.45.26",
     "@unocss/transformer-directives": "^0.45.26",
     "svelte": "^3.49.0",

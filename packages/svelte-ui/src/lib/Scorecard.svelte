@@ -14,10 +14,6 @@
   export let value: { title: string; stars: number }[] = []
   export let starColor = '#333333'
 
-  // if (css) {
-
-  // }
-
   $: numberToArray = stars => {
     // convert 3.5 to array [1, 1, 1, 0.5, 0]
     const vals = []
@@ -74,6 +70,10 @@
 </div>
 
 <style>
+  .list-none {
+    list-style-type: none;
+  }
+
   .star {
     color: var(--star-color);
   }

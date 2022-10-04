@@ -17,6 +17,8 @@ This [turborepo](https://turborepo.org/) uses [pnpm](https://pnpm.io) as a packa
 - `svelte-ui`: a [Svelte.js](https://svelte.dev/) library containing test components
 - `tsconfig`: used throughout the monorepo
 
+TODO: Add Stencil.js and Element.js - https://github.com/webtides/element-js/blob/main/docs/README.md
+
 Each package/app is 100% [TypeScript](https://www.typescriptlang.org/). Packages were created [Vite](https://vitejs.dev/). Runs and build use Vite as the development environment.
 
 ![Screenshot](/assets/screenshot.png)

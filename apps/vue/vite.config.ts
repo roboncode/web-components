@@ -2,6 +2,7 @@ import Unocss from 'unocss/vite'
 import { defineConfig } from 'vite'
 import presetIcons from '@unocss/preset-icons'
 import presetUno from '@unocss/preset-uno'
+import transformerDirective from '@unocss/transformer-directives'
 import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
@@ -17,6 +18,7 @@ export default defineConfig({
           },
         }),
       ],
+      transformers: [transformerDirective()],
     }),
     vue({
       template: {

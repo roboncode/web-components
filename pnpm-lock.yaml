@@ -77,6 +77,7 @@ importers:
       '@unocss/preset-icons': ^0.45.26
       '@unocss/preset-uno': ^0.45.26
       '@unocss/reset': ^0.45.26
+      '@unocss/transformer-directives': ^0.45.26
       '@vitejs/plugin-vue': ^3.1.0
       typescript: ^4.6.4
       unocss: ^0.45.26
@@ -93,6 +94,7 @@ importers:
       '@iconify-json/clarity': 1.1.4
       '@unocss/preset-icons': 0.45.26
       '@unocss/preset-uno': 0.45.26
+      '@unocss/transformer-directives': 0.45.26
       '@vitejs/plugin-vue': 3.1.0_vite@3.1.4+vue@3.2.40
       typescript: 4.8.4
       unocss: 0.45.26_vite@3.1.4

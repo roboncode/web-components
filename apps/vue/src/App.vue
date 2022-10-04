@@ -9,7 +9,7 @@ import '@roboncode/solid-ui'
 // import '@roboncode/svelte-ui/dist/style.css'
 import { ref } from 'vue'
 import Summary from './components/Summary.vue'
-import SvelteCard from './components/SvelteCard.vue'
+import SvelteView from './components/SvelteView.vue'
 
 const name = ref('Vue')
 const count = ref(0)
@@ -37,7 +37,7 @@ const handleCountChange = (evt: CustomEvent) => {
   <!-- <HelloWorld msg="Vite + Vue" /> -->
   <h1 class="text-center">Vue</h1>
   <Summary class="w-full" />
-  <SvelteCard />
+  <SvelteView />
 </template>
 
 <style scoped>
@@ -70,9 +70,4 @@ const handleCountChange = (evt: CustomEvent) => {
 .card:hover {
   border-color: #9d00ff;
 } */
-
-.container {
-  background-color: #1c1c1c;
-  filter: drop-shadow(0 0 1.4em #646cffaa);
-}
 </style>

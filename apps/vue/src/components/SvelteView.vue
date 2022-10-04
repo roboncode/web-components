@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import '@roboncode/svelte-ui'
-import styles from  '@roboncode/svelte-ui/dist/style.css'
+import styles from '@roboncode/svelte-ui/dist/style.css'
 import { computed, ref } from 'vue'
 import Card from './Card.vue'
 
@@ -35,12 +35,12 @@ const getRandomSize = () => {
 }
 
 const svelteCSS = computed(() => {
-  return styles.replace(/.*::backdrop.*?}(.*)/gi, "$1")
+  return styles.replace(/.*::backdrop.*?}(.*)/gi, '$1')
 })
 </script>
 
 <template>
-  <div class="space-y-6 grid gap-3 ">
+  <div class="space-y-6 grid gap-3">
     <!-- <div class="flex flex-col justify-between gap-4 h-full"> -->
     <div class="p-4 text-2xl font-bold">Svelte Web Components</div>
 
@@ -56,13 +56,12 @@ const svelteCSS = computed(() => {
       <p class="border-l-3 border-light-blue-400 pl-4">
         There weren't any additional libraries needed for Svelte to work. However if you want to have the flexibility of
         disabling the shadow dom, then you will need to use a solution like
-        <a href="https://github.com/crisward/svelte-tag"><code>svelte-tag</code></a
-        >. I personally don't think it is needed.
+        <a href="https://github.com/crisward/svelte-tag"> <code>svelte-tag</code> </a>. I personally don't think it is
+        needed.
       </p>
     </div>
 
-
-    <svelte-scorecard starColor="#f6e05e" score="4.75" :value="ratings" :css="svelteCSS"  />
+    <svelte-scorecard starColor="#f6e05e" score="4.75" :value="ratings" :css="svelteCSS" />
 
     <Card title="Stateless component">
       <template #details>
@@ -148,7 +147,16 @@ const svelteCSS = computed(() => {
         <li class="list-disc">Dynamically styling component using CSS <code>var</code></li>
         <li class="list-disc">Applying styles by passing a CSS from a CSS file generated using TailwindCSS (UnoCSS)</li>
       </template>
-      <svelte-scorecard starColor="#f6e05e" score="1 million" :value="[{title: 'Example'}]" :css="svelteCSS" />
+      <svelte-scorecard starColor="#f6e05e" score="1 million" :value="[{ title: 'Example' }]" :css="svelteCSS" />
+    </Card>
+
+    <Card title="Third-party libraries">
+      <template #details>
+        <li class="list-disc">Using a 3rd party library for animation</li>
+      </template>
+      <div class="w-full max-h-80 p-4">
+        <svelte-reveal />
+      </div>
     </Card>
   </div>
 </template>

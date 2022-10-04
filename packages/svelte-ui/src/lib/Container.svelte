@@ -1,46 +1,46 @@
+<svelte:options tag="svelte-container" accessors={true} />
+
 <script lang="ts">
-  export let outerclass = ''
-  export let innerclass = ''
-  const outerCls = 'svelte-w-full svelte-h-full svelte-flex svelte-flex-col svelte-overflow-hidden ' + outerclass
-  const innerCls = 'svelte-flex svelte-flex-col svelte-flex-grow svelte-h-0 svelte-overflow-auto ' + innerclass
+  export let containerClass = ''
+  export let contentClass = ''
 </script>
 
-<div class={outerCls}>
-  <div class={innerCls}>
+<div class="w-full h-full flex flex-col overflow-hidden {containerClass}">
+  <div class="flex flex-col flex-grow h-0 overflow-auto {contentClass}">
     <slot />
   </div>
 </div>
 
-<style global>
-  .svelte-flex {
+<style>
+  .flex {
     display: flex;
   }
 
-  .svelte-flex-col {
+  .flex-col {
     flex-direction: column;
   }
 
-  .svelte-flex-grow {
+  .flex-grow {
     flex-grow: 1;
   }
 
-  .svelte-overflow-hidden {
+  .overflow-hidden {
     overflow: hidden;
   }
 
-  .svelte-overflow-auto {
+  .overflow-auto {
     overflow: auto;
   }
 
-  .svelte-h-0 {
+  .h-0 {
     height: 0;
   }
 
-  .svelte-w-full {
+  .w-full {
     width: 100%;
   }
 
-  .svelte-h-full {
+  .h-full {
     height: 100%;
   }
 </style>

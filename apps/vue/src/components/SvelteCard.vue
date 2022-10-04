@@ -6,15 +6,16 @@ import { ref } from 'vue'
 
 const name = ref('Vue')
 const count = ref(0)
+const showMenu = ref(false)
 
 const ratings = [
   { title: 'Getting Started', stars: 2.5 },
   { title: 'Documentation', stars: 3.5 },
-  { title: 'Capabilities', stars: 3.5 },
-  { title: 'Ease of Use', stars: 3.5 },
-  { title: 'Styling', stars: 3.5 },
-  { title: 'Framework Integration', stars: 3.5 },
-  { title: 'File Size', stars: 3.5 },
+  { title: 'Capabilities', stars: 4.5 },
+  { title: 'Ease of Use', stars: 5 },
+  { title: 'Styling', stars: 4.5 },
+  { title: 'Framework Integration', stars: 5 },
+  { title: 'File Size', stars: 5 },
 ]
 
 const toggleName = () => {
@@ -26,8 +27,17 @@ const handleCountChange = (evt: CustomEvent) => {
   count.value = evt.detail.count
 }
 
+
+
+const sizes = [10, 20, 30, 40]
+const getRandomSize = () => {
+  const randomIndex = Math.floor(Math.random() * sizes.length)
+  return 'w-' + sizes[randomIndex]
+}
+
 // const sheet = new CSSStyleSheet()
 // sheet.replaceSync('a { color: red; }');
+
 </script>
   
 <template>
@@ -52,7 +62,7 @@ const handleCountChange = (evt: CustomEvent) => {
       </ul>
     </div>
 
-    <svelte-scorecard starColor="#f6e05e" score="4.25" :value="ratings" />
+    <svelte-scorecard starColor="#f6e05e" score="4.75" :value="ratings" />
 
     <div class="bg-purple-500 mt-8 p-4 py-2 rounded-md text-xl font-bold">Stateless component</div>
     <div class="font-normal p-4">
@@ -74,26 +84,55 @@ const handleCountChange = (evt: CustomEvent) => {
     <div class="font-normal">Manages its own state and dispatches a change event when the count as changed.</div>
 
     <div class="flex gap-4 items-center">
-      <svelte-counter className="btn" @change="handleCountChange($event)" />
+      <svelte-counter className="bg-light-blue-500" @change="handleCountChange($event)" />
       <div class="w-8 h-8 flex items-center justify-center rounded bg-light-blue-500">
         <strong>{{count}}</strong>
       </div>
     </div>
     <!-- <svelte-shadow /> -->
     <!-- </div> -->
-    <!-- <svelte-container class="w-full h-100" innerClass="gap-2">
-          <div>header</div>
-          <div v-for="i in 10" :key="i" class="p-2 bg-purple-500 rounded">Item {{i}} </div>
-          <div class="sticky top-0 p-2 bg-yellow-500 rounded">Sticky </div>
-          <div v-for="i in 10" :key="i" class="p-2 bg-purple-500 rounded">Item {{i}} </div>
-          <div>footer</div>
-        </svelte-container> -->
+
+    <div class="bg-purple-500 mt-8 p-4 py-2 rounded-md text-xl font-bold">Assembling Containers</div>
+    <div class="font-normal p-4">
+      <strong>Demonstrates</strong>
+      <ul class="pl-4">
+        <li class="list-disc">Complex layouts</li>
+        <li class="list-disc">Extending the style from outside container using special classes</li>
+      </ul>
+    </div>
+
+    <div class="w-full h-100 border border-dark-900 drop-shadow-md rounded overflow-hidden">
+      <svelte-container class="w-full h-full">
+        <div class="px-2 py-4 bg-dark-900 flex items-center drop-shadow-lg">
+          <button class="i-tabler-menu-2" @click="showMenu = !showMenu"></button>
+          <div class="font-bold">My application</div>
+        </div>
+        <div class="flex w-full h-full bg-red">
+          <svelte-container v-if="showMenu" class="h-full bg-dark-800 drop-shadow">
+            <div class="flex gap-2 items-center font-bold p-4 bg-dark-400 sticky top-0">
+              <span class="i-tabler-user-circle"></span>
+              <span>Jane Doe</span>
+            </div>
+            <div class="p-4 w-50 space-y-2">
+              <div>Home</div>
+              <div>Reports</div>
+              <div>Profile</div>
+              <div>Settings</div>
+            </div>
+          </svelte-container>
+          <svelte-container class="h-full flex-grow bg-dark-500" contentClass="p-10">
+            <div class="inline-flex flex-wrap gap-4 p-4">
+              <div v-for="i in 150" :key="i" class="h-4 rounded-full bg-dark-200" :class="getRandomSize()"></div>
+            </div>
+          </svelte-container>
+        </div>
+        <!-- w-10 w-20 w-30 w-40 -->
+        <div class="flex items-center justify-center gap-2 p-4 bg-dark-900 text-light-blue-400 text-xs">
+          <div>About</div> |
+          <div>Blog</div> |
+          <div>Careers</div>
+        </div>
+      </svelte-container>
+    </div>
   </div>
 </template>
-  
-<style scoped>
-/* .container {
-    background-color: #1c1c1c;
-    filter: drop-shadow(0 0 1.4em #af64ffaa);
-  } */
-</style>
